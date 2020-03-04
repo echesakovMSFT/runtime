@@ -264,11 +264,11 @@ INST4(fcmgt,   "fcmgt", 0, 0, IF_EN4I,   0x7EA0E400,  0x2EA0E400,  0x5EA0C800,  
                                    //  fcmgt   Vd,Vn                DV_2A  0Q0011101X100000 110010nnnnnddddd   0EA0 C800   Vd Vn      (vector)
 
 //    enum     name     FP LD/ST            LS_2D        LS_3F      LS_2E        LS_3G
-INST4(ld1,     "ld1",   0, LD,IF_EN4J,   0x0C402000,  0x0CC02000,  0x0D400000,  0x0DC00000)
-                                   //  ld1     Vd,Rn                LS_2D  0Q00110001000000 xx1xssnnnnnttttt   0C40 2000   Vd,Rn        (vector - multiple structures)
-                                   //  ld1     Vd,Rn,Rm             LS_3F  0Q001100110mmmmm xx1xssnnnnnttttt   0CC0 2000   Vd,Rn,Rm     (vector - multiple structures)
-                                   //  ld1     Vd[],Rn              LS_2E  0Q00110101000000 xx0Sssnnnnnttttt   0D40 0000   Vd[],Rn      (vector - single structure)
-                                   //  ld1     Vd[],Rn,Rm           LS_3G  0Q001101110mmmmm xx0Sssnnnnnttttt   0DC0 0000   Vd[],Rn,Rm   (vector - single structure)
+INST4(ld1,     "ld1",   0, LD,IF_EN4J,   0x0C407000,  0x0CC07000,  0x0D400000,  0x0DC00000)
+                                   //  ld1     {Vt},Rn              LS_2D  0Q00110001000000 0111ssnnnnnttttt   0C40 7000   Vt,Rn      (vector - multiple structures, no offset)
+                                   //  ld1     {Vt},Rn,Rm           LS_3F  0Q001100110mmmmm 0111ssnnnnnttttt   0CC0 7000   Vt,Rn,Rm   (vector - multiple structures, post-index)
+                                   //  ld1     Vd[],Rn              LS_2E  0Q00110101000000 xx0Sssnnnnnttttt   0D40 0000   Vd[],Rn    (vector) single structure, no offset
+                                   //  ld1     Vd[],Rn,Rm           LS_3G  0Q001101110mmmmm xx0Sssnnnnnttttt   0DC0 0000   Vd[],Rn,Rm (vector) single structure, post-index
 
 //    enum     name     FP LD/ST            DR_3A        DR_3B        DI_2C
 INST3(ands,    "ands",   0, 0, IF_EN3A,   0x6A000000,  0x6A000000,  0x72000000)
@@ -669,6 +669,19 @@ INST2(fminp,   "fminp",  0, 0, IF_EN2P,   0x7EB0F800,  0x2EA0F400)
 INST2(addp,    "addp",   0, 0, IF_EN2Q,   0x5E31B800,  0x0E20BC00)
                                    //  addp Vd,Vn                   DV_2S  01011110XX110001 101110nnnnnddddd   5E31 B800   Vd,Vn      (scalar)
                                    //  addp Vd,Vn,Vm                DV_3A  0Q001110XX1mmmmm 101111nnnnnddddd   0E20 BC00   Vd,Vn,Vm   (vector)
+
+//    enum     name     FP LD/ST            LS_2D        LS_3F
+INST2(ld1_2regs,"ld1",   0,LD, IF_EN2R,   0x0C40A000,  0x0CC0A000)
+                                   //  ld1     {Vt,Vt2},Rn          LS_2D  0Q00110001000000 1010ssnnnnnttttt   0C40 A000   Vt,Rn      (vector - multiple structures, no offset)
+                                   //  ld1     {Vt,Vt2},Rn,Rm       LS_3F  0Q001100110mmmmm 1010ssnnnnnttttt   0CC0 A000   Vt,Rn,Rm   (vector - multiple structures, post-index)
+
+INST2(ld1_3regs,"ld1",   0,LD, IF_EN2R,   0x0C406000,  0x0CC06000)
+                                   //  ld1     {Vt-Vt3},Rn          LS_2D  0Q00110001000000 0110ssnnnnnttttt   0C40 6000   Vt,Rn      (vector - multiple structures, no offset)
+                                   //  ld1     {Vt-Vt3},Rn,Rm       LS_3F  0Q001100110mmmmm 0110ssnnnnnttttt   0CC0 6000   Vt,Rn,Rm   (vector - multiple structures, post-index)
+
+INST2(ld1_4regs,"ld1",   0,LD, IF_EN2R,   0x0C402000,  0x0CC02000)
+                                   //  ld1     {Vt-Vt4},Rn          LS_2D  0Q00110001000000 0010ssnnnnnttttt   0C40 2000   Vt,Rn      (vector - multiple structures, no offset)
+                                   //  ld1     {Vt-Vt4},Rn,Rm       LS_3F  0Q001100110mmmmm 0010ssnnnnnttttt   0CC0 2000   Vt,Rn,Rm   (vector - multiple structures, post-index)
 
 INST1(ldar,    "ldar",   0,LD, IF_LS_2A,  0x88DFFC00)
                                    //  ldar    Rt,[Xn]              LS_2A  1X00100011011111 111111nnnnnttttt   88DF FC00
