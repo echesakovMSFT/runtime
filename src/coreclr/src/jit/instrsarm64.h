@@ -265,10 +265,10 @@ INST4(fcmgt,   "fcmgt", 0, 0, IF_EN4I,   0x7EA0E400,  0x2EA0E400,  0x5EA0C800,  
 
 //    enum     name     FP LD/ST            LS_2D        LS_3F      LS_2E        LS_3G
 INST4(ld1,     "ld1",   0, LD,IF_EN4J,   0x0C407000,  0x0CC07000,  0x0D400000,  0x0DC00000)
-                                   //  ld1     {Vt},Rn              LS_2D  0Q00110001000000 0111ssnnnnnttttt   0C40 7000   Vt,Rn      (vector) multiple single-element structures to one register (no offset)
-                                   //  ld1     {Vt},Rn,Rm           LS_3F  0Q001100110mmmmm 0111ssnnnnnttttt   0CC0 7000   Vt,Rn,Rm   (vector) multiple single-element structures to one register (post-index)
-                                   //  ld1     {Vt}[],Rn            LS_2E  0Q00110101000000 xx0Sssnnnnnttttt   0D40 0000   Vt[],Rn    (vector) one single-element structure to one lane of one register (no offset)
-                                   //  ld1     {Vt}[],Rn,Rm         LS_3G  0Q001101110mmmmm xx0Sssnnnnnttttt   0DC0 0000   Vt[],Rn,Rm (vector) one single-element structure to one lane of one register (post-index)
+                                   //  ld1     {Vt},Rn              LS_2D  0Q00110001000000 0111ssnnnnnttttt   0C40 7000   Vt,Rn      (vector) no offset
+                                   //  ld1     {Vt},Rn,Rm           LS_3F  0Q001100110mmmmm 0111ssnnnnnttttt   0CC0 7000   Vt,Rn,Rm   (vector) post-index
+                                   //  ld1     {Vt}[],Rn            LS_2E  0Q00110101000000 xx0Sssnnnnnttttt   0D40 0000   Vt[],Rn    (vector) no offset
+                                   //  ld1     {Vt}[],Rn,Rm         LS_3G  0Q001101110mmmmm xx0Sssnnnnnttttt   0DC0 0000   Vt[],Rn,Rm (vector) post-index
 
 INST4(st1,     "st1",   0, LD,IF_EN4J,   0x0C007000,  0x0C807000,  0x0D000000,  0x0D800000)
                                    //  st1     {Vt},Rn              LS_2D  0Q00110000000000 0111ssnnnnnttttt   0C00 7000   Vt,Rn      (vector) multiple single-element structures from one register (no offset)
@@ -678,16 +678,16 @@ INST2(addp,    "addp",   0, 0, IF_EN2Q,   0x5E31B800,  0x0E20BC00)
 
 //    enum     name     FP LD/ST            LS_2D        LS_3F
 INST2(ld1_2regs,"ld1",   0,LD, IF_EN2R,   0x0C40A000,  0x0CC0A000)
-                                   //  ld1     {Vt,Vt2},Rn          LS_2D  0Q00110001000000 1010ssnnnnnttttt   0C40 A000   Vt,Rn      (vector - multiple structures, no offset)
-                                   //  ld1     {Vt,Vt2},Rn,Rm       LS_3F  0Q001100110mmmmm 1010ssnnnnnttttt   0CC0 A000   Vt,Rn,Rm   (vector - multiple structures, post-index)
+                                   //  ld1     {Vt,Vt2},Rn          LS_2D  0Q00110001000000 1010ssnnnnnttttt   0C40 A000   Vt,Rn      (vector) no offset
+                                   //  ld1     {Vt,Vt2},Rn,Rm       LS_3F  0Q001100110mmmmm 1010ssnnnnnttttt   0CC0 A000   Vt,Rn,Rm   (vector) post-index
 
 INST2(ld1_3regs,"ld1",   0,LD, IF_EN2R,   0x0C406000,  0x0CC06000)
-                                   //  ld1     {Vt-Vt3},Rn          LS_2D  0Q00110001000000 0110ssnnnnnttttt   0C40 6000   Vt,Rn      (vector - multiple structures, no offset)
-                                   //  ld1     {Vt-Vt3},Rn,Rm       LS_3F  0Q001100110mmmmm 0110ssnnnnnttttt   0CC0 6000   Vt,Rn,Rm   (vector - multiple structures, post-index)
+                                   //  ld1     {Vt-Vt3},Rn          LS_2D  0Q00110001000000 0110ssnnnnnttttt   0C40 6000   Vt,Rn      (vector) no offset
+                                   //  ld1     {Vt-Vt3},Rn,Rm       LS_3F  0Q001100110mmmmm 0110ssnnnnnttttt   0CC0 6000   Vt,Rn,Rm   (vector) post-index
 
 INST2(ld1_4regs,"ld1",   0,LD, IF_EN2R,   0x0C402000,  0x0CC02000)
-                                   //  ld1     {Vt-Vt4},Rn          LS_2D  0Q00110001000000 0010ssnnnnnttttt   0C40 2000   Vt,Rn      (vector - multiple structures, no offset)
-                                   //  ld1     {Vt-Vt4},Rn,Rm       LS_3F  0Q001100110mmmmm 0010ssnnnnnttttt   0CC0 2000   Vt,Rn,Rm   (vector - multiple structures, post-index)
+                                   //  ld1     {Vt-Vt4},Rn          LS_2D  0Q00110001000000 0010ssnnnnnttttt   0C40 2000   Vt,Rn      (vector) no offset
+                                   //  ld1     {Vt-Vt4},Rn,Rm       LS_3F  0Q001100110mmmmm 0010ssnnnnnttttt   0CC0 2000   Vt,Rn,Rm   (vector) post-index
 
 INST2(ld1r,    "ld1r",   0,LD, IF_EN2R,   0x0D40C000,  0x0DC0C000)
                                    //  ld1r    {Vt},Rn              LS_2D  0Q00110101000000 1100ssnnnnnttttt   0D40 C000   Vt,Rn      (vector, no offset)
