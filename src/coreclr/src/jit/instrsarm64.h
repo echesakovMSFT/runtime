@@ -270,6 +270,12 @@ INST4(ld1,     "ld1",   0, LD,IF_EN4J,   0x0C407000,  0x0CC07000,  0x0D400000,  
                                    //  ld1     {Vt}[],Rn            LS_2E  0Q00110101000000 xx0Sssnnnnnttttt   0D40 0000   Vt[],Rn    (vector) no offset
                                    //  ld1     {Vt}[],Rn,Rm         LS_3G  0Q001101110mmmmm xx0Sssnnnnnttttt   0DC0 0000   Vt[],Rn,Rm (vector) post-index
 
+INST4(ld2,     "ld2",   0, LD,IF_EN4J,   0x0C408000,  0x0CC08000,  0x0D600000,  0x0DE00000)
+                                   //  ld2     {Vt,Vt2},Rn          LS_2D  0Q00110001000000 1000ssnnnnnttttt   0C40 8000   Vt,Rn      (vector) no offset
+                                   //  ld2     {Vt,Vt2},Rn,Rm       LS_3F  0Q001100110mmmmm 1000ssnnnnnttttt   0CC0 8000   Vt,Rn,Rm   (vector) post-index
+                                   //  ld2     {Vt,Vt2}[],Rn        LS_2E  0Q00110101100000 xx0Sssnnnnnttttt   0D60 0000   Vt[],Rn    (vector) no offset
+                                   //  ld2     {Vt,Vt2}[],Rn,Rm     LS_3G  0Q001101111mmmmm xx0Sssnnnnnttttt   0DE0 0000   Vt[],Rn,Rm (vector) post-index
+
 INST4(st1,     "st1",   0, LD,IF_EN4J,   0x0C007000,  0x0C807000,  0x0D000000,  0x0D800000)
                                    //  st1     {Vt},Rn              LS_2D  0Q00110000000000 0111ssnnnnnttttt   0C00 7000   Vt,Rn      (vector) no offset
                                    //  st1     {Vt},Rn,Rm           LS_3F  0Q001100100mmmmm 0111ssnnnnnttttt   0C80 7000   Vt,Rn,Rm   (vector) post-index
