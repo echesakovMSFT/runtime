@@ -683,6 +683,22 @@ INST2(ld1_4regs,"ld1",   0,LD, IF_EN2R,   0x0C402000,  0x0CC02000)
                                    //  ld1     {Vt-Vt4},Rn          LS_2D  0Q00110001000000 0010ssnnnnnttttt   0C40 2000   Vt,Rn      (vector - multiple structures, no offset)
                                    //  ld1     {Vt-Vt4},Rn,Rm       LS_3F  0Q001100110mmmmm 0010ssnnnnnttttt   0CC0 2000   Vt,Rn,Rm   (vector - multiple structures, post-index)
 
+INST2(ld1r,    "ld1r",   0,LD, IF_EN2R,   0x0D40C000,  0x0DC0C000)
+                                   //  ld1r    {Vt},Rn              LS_2D  0Q00110101000000 1100ssnnnnnttttt   0D40 C000   Vt,Rn      (vector, no offset)
+                                   //  ld1r    {Vt},Rn,Rm           LS_3F  0Q001101110mmmmm 1100ssnnnnnttttt   0DC0 C000   Vt,Rn,Rm   (vector, post-index)
+
+INST2(ld2r,    "ld2r",   0,LD, IF_EN2R,   0x0D60C000,  0x0DE0C000)
+                                   //  ld2r    {Vt,Vt2},Rn          LS_2D  0Q00110101100000 1100ssnnnnnttttt   0D60 C000   Vt,Rn      (vector, no offset)
+                                   //  ld2r    {Vt,Vt2},Rn,Rm       LS_3F  0Q001101111mmmmm 1100ssnnnnnttttt   0DE0 C000   Vt,Rn,Rm   (vector, post-index)
+
+INST2(ld3r,    "ld3r",   0,LD, IF_EN2R,   0x0D40E000,  0x0DC0E000)
+                                   //  ld3r    {Vt-Vt3},Rn          LS_2D  0Q00110101000000 1110ssnnnnnttttt   0D40 E000   Vt,Rn      (vector, no offset)
+                                   //  ld3r    {Vt-Vt3},Rn,Rm       LS_3F  0Q001101110mmmmm 1110ssnnnnnttttt   0DC0 E000   Vt,Rn,Rm   (vector, post-index)
+
+INST2(ld4r,    "ld4r",   0,LD, IF_EN2R,   0x0D60E000,  0x0DE0E000)
+                                   //  ld4r    {Vt-Vt4},Rn          LS_2D  0Q00110101100000 1110ssnnnnnttttt   0D60 E000   Vt,Rn      (vector, no offset)
+                                   //  ld4r    {Vt-Vt4},Rn,Rm       LS_3F  0Q001101111mmmmm 1110XXnnnnnttttt   0DE0 E000   Vt,Rn,Rm   (vector, post-index)
+
 INST1(ldar,    "ldar",   0,LD, IF_LS_2A,  0x88DFFC00)
                                    //  ldar    Rt,[Xn]              LS_2A  1X00100011011111 111111nnnnnttttt   88DF FC00
 
