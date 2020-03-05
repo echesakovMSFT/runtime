@@ -270,6 +270,12 @@ INST4(ld1,     "ld1",   0, LD,IF_EN4J,   0x0C407000,  0x0CC07000,  0x0D400000,  
                                    //  ld1     Vd[],Rn              LS_2E  0Q00110101000000 xx0Sssnnnnnttttt   0D40 0000   Vd[],Rn    (vector) single structure, no offset
                                    //  ld1     Vd[],Rn,Rm           LS_3G  0Q001101110mmmmm xx0Sssnnnnnttttt   0DC0 0000   Vd[],Rn,Rm (vector) single structure, post-index
 
+INST4(st1,     "st1",   0, LD,IF_EN4J,   0x0C007000,  0x0C807000,  0x0D000000,  0x0D800000)
+                                   //  st1     {Vt},Rn              LS_2D  0Q00110000000000 0111ssnnnnnttttt   0C00 7000   Vt,Rn      (vector) multiple single-element structures from one register (no offset)
+                                   //  st1     {Vt},Rn,Rm           LS_3F  0Q001100100mmmmm 0111ssnnnnnttttt   0C80 7000   Vt,Rn,Rm   (vector) multiple single-element structures from one register (post-index)
+                                   //  st1     {Vt}[],Rn            LS_2E  0Q00110100000000 xx0Sssnnnnnttttt   0D00 0000   Vt[],Rn    (vector) a single-element structure from one lane of one register (no offset)
+                                   //  st1     {Vt}[],Rn,Rm         LS_3G  0Q001101100mmmmm xx0Sssnnnnnttttt   0D80 0000   Vt[],Rn,Rm (vector) a single-element structure from one lane of one register (post-index)
+
 //    enum     name     FP LD/ST            DR_3A        DR_3B        DI_2C
 INST3(ands,    "ands",   0, 0, IF_EN3A,   0x6A000000,  0x6A000000,  0x72000000)
                                    //  ands    Rd,Rn,Rm             DR_3A  X1101010000mmmmm 000000nnnnnddddd   6A00 0000
