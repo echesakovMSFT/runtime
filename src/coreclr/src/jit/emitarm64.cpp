@@ -1572,6 +1572,7 @@ emitter::code_t emitter::emitInsCode(instruction ins, insFormat fmt)
     const static insFormat formatEncode2O[2] = {IF_DV_3E, IF_DV_3A};
     const static insFormat formatEncode2P[2] = {IF_DV_2Q, IF_DV_3B};
     const static insFormat formatEncode2Q[2] = {IF_DV_2S, IF_DV_3A};
+    const static insFormat formatEncode2R[2] = {IF_LS_2D, IF_LS_3F};
 
     code_t    code           = BAD_CODE;
     insFormat insFmt         = emitInsFormat(ins);
@@ -2024,6 +2025,17 @@ emitter::code_t emitter::emitInsCode(instruction ins, insFormat fmt)
             for (index = 0; index < 2; index++)
             {
                 if (fmt == formatEncode2Q[index])
+                {
+                    encoding_found = true;
+                    break;
+                }
+            }
+            break;
+
+        case IF_EN2R:
+            for (index = 0; index < 2; index++)
+            {
+                if (fmt == formatEncode2R[index])
                 {
                     encoding_found = true;
                     break;
@@ -4477,14 +4489,19 @@ void emitter::emitIns_R_R(
             break;
 
         case INS_ld1:
-        {
+        case INS_ld1_2regs:
+        case INS_ld1_3regs:
+        case INS_ld1_4regs:
+        case INS_ld1r:
+        case INS_ld2r:
+        case INS_ld3r:
+        case INS_ld4r:
             assert(isVectorRegister(reg1));
             assert(isIntegerRegister(reg2));
             assert(isValidVectorDatasize(size));
             assert(isValidArrangement(size, opt));
             fmt = IF_LS_2D;
             break;
-        }
 
         default:
             unreached();
