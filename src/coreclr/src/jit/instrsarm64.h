@@ -265,10 +265,10 @@ INST4(fcmgt,   "fcmgt", 0, 0, IF_EN4I,   0x7EA0E400,  0x2EA0E400,  0x5EA0C800,  
 
 //    enum     name     FP LD/ST            LS_2D        LS_3F      LS_2E        LS_3G
 INST4(ld1,     "ld1",   0, LD,IF_EN4J,   0x0C407000,  0x0CC07000,  0x0D400000,  0x0DC00000)
-                                   //  ld1     {Vt},Rn              LS_2D  0Q00110001000000 0111ssnnnnnttttt   0C40 7000   Vt,Rn      (vector - multiple structures, no offset)
-                                   //  ld1     {Vt},Rn,Rm           LS_3F  0Q001100110mmmmm 0111ssnnnnnttttt   0CC0 7000   Vt,Rn,Rm   (vector - multiple structures, post-index)
-                                   //  ld1     Vd[],Rn              LS_2E  0Q00110101000000 xx0Sssnnnnnttttt   0D40 0000   Vd[],Rn    (vector) single structure, no offset
-                                   //  ld1     Vd[],Rn,Rm           LS_3G  0Q001101110mmmmm xx0Sssnnnnnttttt   0DC0 0000   Vd[],Rn,Rm (vector) single structure, post-index
+                                   //  ld1     {Vt},Rn              LS_2D  0Q00110001000000 0111ssnnnnnttttt   0C40 7000   Vt,Rn      (vector) multiple single-element structures to one register (no offset)
+                                   //  ld1     {Vt},Rn,Rm           LS_3F  0Q001100110mmmmm 0111ssnnnnnttttt   0CC0 7000   Vt,Rn,Rm   (vector) multiple single-element structures to one register (post-index)
+                                   //  ld1     {Vt}[],Rn            LS_2E  0Q00110101000000 xx0Sssnnnnnttttt   0D40 0000   Vt[],Rn    (vector) one single-element structure to one lane of one register (no offset)
+                                   //  ld1     {Vt}[],Rn,Rm         LS_3G  0Q001101110mmmmm xx0Sssnnnnnttttt   0DC0 0000   Vt[],Rn,Rm (vector) one single-element structure to one lane of one register (post-index)
 
 INST4(st1,     "st1",   0, LD,IF_EN4J,   0x0C007000,  0x0C807000,  0x0D000000,  0x0D800000)
                                    //  st1     {Vt},Rn              LS_2D  0Q00110000000000 0111ssnnnnnttttt   0C00 7000   Vt,Rn      (vector) multiple single-element structures from one register (no offset)
